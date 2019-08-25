@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 
 @Component({
   selector: 'custom-button',
-  template: `<button type="button" class=btn (click)="countClicks()">{{text}}</button>`,
+  template: '<button type="button" class={{classtouse}} (click)="countClicks()">{{text}}</button>',
   styles: [`
     .btn {
       display: inline-block;
@@ -15,6 +15,8 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
       -ms-user-select: none;
       user-select: none;
       border: 1px solid transparent;
+    }
+    .btn2 {
       padding: .375rem .75rem;
       font-size: 1rem;
       line-height: 1.5;
@@ -37,7 +39,7 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 export class CustomButtonComponent implements OnInit {
 
   @Input() text = 'Custom Button';
-  @Input('classToUse') classToUse: string;
+  @Input() classtouse = 'x';
   @Output() countChanged = new EventEmitter<number>();
   private totalClicks: number = 0;
 
@@ -49,6 +51,7 @@ export class CustomButtonComponent implements OnInit {
   countClicks() {
     this.totalClicks++;
     this.countChanged.emit(this.totalClicks);
+    alert(this.text);
+    alert(this.classtouse);
   }
-
 }
