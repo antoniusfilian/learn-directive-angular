@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 
 @Component({
   selector: 'custom-button',
-  template: `<button type="button" class={{classToUse}} (click)="countClicks()">{{text}}</button>`,
+  template: `<button type="button" class=btn (click)="countClicks()">{{text}}</button>`,
   styles: [`
     .btn {
       display: inline-block;
